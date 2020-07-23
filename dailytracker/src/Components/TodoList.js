@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import Todo from './Todo';
 
-const TodoList = () => {
+const TodoList = ({todos}) => {
     return (
     <div>
-        TodoList Component
-        <Todo />
+        <ul>
+            {todos.map(todo => (
+                <Todo key={todo.id} todo={todo}/>
+            ))}
+        </ul>
+        
     </div>
     )
 }

@@ -5,12 +5,27 @@ import './App.css';
 
 
 const  App = () => {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState([  {
+    task: 'Work on projects',
+    id: 1,
+    completed: false
+  },
+  {
+    task: 'Complete Coding challenges',
+    id: 2,
+    completed: false
+  },
+  {
+    task: 'Check turnip prices in Animal Crossing',
+    id: Date.now(),
+    completed: false
+  }
+]);
 
   return (
     <div className="App">
       <TodoForm />
-      <TodoList />
+      <TodoList todos={todos}/>
     </div>
   );
 }
