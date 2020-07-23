@@ -4,9 +4,10 @@ import './Components/TodoForm';
 import logo from './logo.svg';
 import './App.css';
 
-const [note, setNote] = []
 
 const  App = () => {
+  const [todos, setTodos] = useState([]);
+  
   return (
     <div className="App">
       <header className="App-header">
