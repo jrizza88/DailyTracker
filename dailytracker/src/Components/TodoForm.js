@@ -9,10 +9,11 @@ const TodoForm = ({handleChange, value, handleSubmit, completeTodo, handleDelete
             name="todo"
             onChange={handleChange}
             value={value}
+            placeholder="Add a task!"
         />
         </form>
         <button onClick={handleSubmit}>Add Task</button>
-        <button onClick={completeTodo}>Remove Task</button>
+        <button onClick={completeTodo}>Complete Task</button>
         <button onClick={handleDelete}>Remove Task</button>
     </div>
     )
