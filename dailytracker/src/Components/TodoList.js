@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import Todo from './Todo';
+import './Todo.css';
 
 const TodoList = ({todos}) => {
     return (
     <div>
         <ul>
-            {todos.map((todo, index) => (
-                <Todo key={index} todo={todo}/>
+            {todos.map(todo => (
+                <Todo key={todo.id} todo={todo}/>
+                
             ))}
         </ul>
         

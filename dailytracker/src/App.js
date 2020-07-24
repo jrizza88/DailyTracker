@@ -5,7 +5,8 @@ import './App.css';
 
 
 const  App = () => {
-  const [todos, setTodos] = useState([  {
+  const [todos, setTodos] = useState([  
+    {
     task: 'Work on projects',
     id: 1,
     completed: false
@@ -29,12 +30,12 @@ const addToDo = add => {
     id: Date.now(),
     completed: false
   }
-  setTodos({...todos, addNewTodo})
+  setTodos([...todos, addNewTodo] )
 }
 
   return (
     <div className="App">
-      <TodoForm handleSubmit={addToDo}/>
+      <TodoForm addTodoProp={addToDo}/>
       <TodoList todos={todos}/>
     </div>
   );
