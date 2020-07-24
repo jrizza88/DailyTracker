@@ -1,20 +1,43 @@
 import React, { useState } from 'react';
 
-const TodoForm = ({handleChange, value, handleSubmit, completeTodo, handleDelete}) => {
+const TodoForm = ({addTodoProp}) => {
+
+    const [formValue, setFormValue] = useState({
+        task: '',
+        id: '',
+        completed: false
+    });
+
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        console.log('form submited"')
+        addTodoProp(formValue);
+        setFormValue({
+        task: '',
+        id: '',
+        completed: false
+        })
+    }
+
+    const handleChange = e => {
+        setFormValue({...formValue, [e.target.name]:e.target.value })
+    }
+
+
     return (
     <div>
-        <form>
+        <form onSubmit={handleSubmit}>
         <input 
             type="text"
-            name="todo"
+            name="task"
             onChange={handleChange}
-            value={value}
+            value={formValue.task}
             placeholder="Add a task!"
         />
+        <button>Add Task</button>
         </form>
-        <button onClick={handleSubmit}>Add Task</button>
-        <button onClick={completeTodo}>Complete Task</button>
-        <button onClick={handleDelete}>Remove Task</button>
+        <button >Remove Task</button>
     </div>
     )
 }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Todo from './Todo';
+import './Todo.css';
 
 const TodoList = ({todos}) => {
     return (
@@ -7,6 +8,7 @@ const TodoList = ({todos}) => {
         <ul>
             {todos.map(todo => (
                 <Todo key={todo.id} todo={todo}/>
+                
             ))}
         </ul>
         
