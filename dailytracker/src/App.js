@@ -22,9 +22,19 @@ const  App = () => {
   }
 ]);
 
+const addToDo = add => {
+  console.log('add to do!')
+  const addNewTodo = {
+    task: add.task,
+    id: Date.now(),
+    completed: false
+  }
+  setTodos({...todos, addNewTodo})
+}
+
   return (
     <div className="App">
-      <TodoForm />
+      <TodoForm handleSubmit={addToDo}/>
       <TodoList todos={todos}/>
     </div>
   );
