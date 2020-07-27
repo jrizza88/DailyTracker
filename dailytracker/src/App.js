@@ -30,13 +30,42 @@ const addToDo = add => {
     id: Date.now(),
     completed: false
   }
-  setTodos([...todos, addNewTodo] )
+  setTodos([...todos, addNewTodo])
 }
+
+
+
+const clearCompleted = e => {
+  e.preventDefault()
+ console.log('clear completed clicked!')
+
+}
+
+const toggleTodo = id => {
+  let toggleTodos = [...todos]
+  toggleTodos.map(t => {
+    if (t.id === id) {
+      console.log('toggled!', t)
+      t.completed = !t.completed;
+      return t
+    } else {
+      return t
+    }
+  })
+  setTodos(toggleTodos)
+}
+
+
 
   return (
     <div className="App">
-      <TodoForm addTodoProp={addToDo}/>
-      <TodoList todos={todos}/>
+      <TodoForm 
+        addTodoProp={addToDo}
+        handleClearCompleted={clearCompleted}
+      />
+      <TodoList 
+      handleToggleComplete={toggleTodo}
+      todos={todos}/>
     </div>
   );
 }

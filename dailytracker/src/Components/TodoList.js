@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Todo from './Todo';
 import './Todo.css';
 
-const TodoList = ({todos}) => {
+const TodoList = ({todos, handleToggleComplete}) => {
     return (
     <div>
         <ul>
             {todos.map(todo => (
-                <Todo key={todo.id} todo={todo}/>
+                <Todo 
+                    key={todo.id} 
+                    todo={todo} 
+                    handleToggleComplete={handleToggleComplete}/>
                 
             ))}
         </ul>
