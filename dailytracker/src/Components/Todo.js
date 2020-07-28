@@ -1,16 +1,16 @@
 import React from 'react';
 import './Todo.css';
 
-const Todo = ({todo, handleToggleComplete}) => {
+const Todo = ({todo, handleToggleComplete, handleClearCompleted}) => {
     return (
-    <div>
-        <div className="complete" 
-        style={todo.completed ? {textDecoration: 'line-through'} : null}
-        onClick={() => handleToggleComplete(todo.id)}
+    <div className="complete" >
+        <div 
+                   style={todo.completed ? {textDecoration: 'line-through'} : null}
+                   onClick={() => handleToggleComplete(todo.id)}
         >
-            {/* <input type="checkbox" value={todo.completed} /> */}
             <h2 className="task">{todo.task}</h2>
         </div>
+        <button onClick={() => handleClearCompleted(todo.id)}>Delete</button>
     </div>
     )
 }

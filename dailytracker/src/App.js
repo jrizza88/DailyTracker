@@ -35,10 +35,17 @@ const addToDo = add => {
 
 
 
-const clearCompleted = e => {
-  e.preventDefault()
+const clearCompleted = (e, index) => {
+  // e.preventDefault();
  console.log('clear completed clicked!')
-
+//  let clearTask = [...todos]
+//  let completeit = clearTask.splice(index, 1)
+//   clearTask.filter(todo => !todo.completed)
+//  setTodos(clearTask)
+// clearTask.filter(todo => todo !== todo.completed)
+let clearTask = todos.filter(todo => !todo.completed)
+ setTodos(clearTask)
+ console.log('completeit...', clearTask)
 }
 
 const toggleTodo = id => {
@@ -61,11 +68,13 @@ const toggleTodo = id => {
     <div className="App">
       <TodoForm 
         addTodoProp={addToDo}
-        handleClearCompleted={clearCompleted}
+        handleToggleComplete={clearCompleted}
       />
       <TodoList 
       handleToggleComplete={toggleTodo}
-      todos={todos}/>
+      todos={todos}
+      handleClearCompleted={clearCompleted}
+      />
     </div>
   );
 }
