@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const TodoForm = ({addTodoProp}) => {
+const TodoForm = ({addTodoProp, handleClearCompleted, index}) => {
 
     const [formValue, setFormValue] = useState({
         task: '',
@@ -23,7 +23,7 @@ const TodoForm = ({addTodoProp}) => {
     const handleChange = e => {
         setFormValue({...formValue, [e.target.name]:e.target.value })
     }
-
+    
 
     return (
     <div>
@@ -35,11 +35,12 @@ const TodoForm = ({addTodoProp}) => {
             value={formValue.task}
             placeholder="Add a task!"
         />
-        <button>Add Task</button>
+        <button type="submit" value="add">Add Task</button>
+        <button type="button" onClick={() => handleClearCompleted} >Remove Task</button>
         </form>
-        <button >Remove Task</button>
+        <button type="button" onClick={() => handleClearCompleted(formValue.id)} >Remove Task</button>
     </div>
     )
 }
 
-export default TodoForm
+export default TodoForm;
