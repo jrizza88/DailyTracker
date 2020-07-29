@@ -2,16 +2,18 @@ import React from 'react';
 import Todo from './Todo';
 import './Todo.css';
 
-const TodoList = ({todos, handleToggleComplete, handleClearCompleted}) => {
+const TodoList = ({todos, handleToggleComplete, handleClearCompleted, handleEdit}) => {
     return (
     <div>
         <ul>
-            {todos.map((todo, index) => (
+            {todos.map(todo => (
                 <Todo 
                     key={todo.id} 
                     todo={todo} 
                     handleToggleComplete={handleToggleComplete}
+                    handleEdit={handleEdit}
                     handleClearCompleted={handleClearCompleted}
+                   
                     />
                 
             ))}

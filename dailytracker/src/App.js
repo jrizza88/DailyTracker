@@ -33,16 +33,33 @@ const addToDo = add => {
   setTodos([...todos, addNewTodo])
 }
 
+const editTodo = (edit, id) => {
+  console.log('edit!')
+  // run toggleTodo to prevent toggling?
+  let editTask = [...todos]
+  editTask.map(item => {
+    if (item.id === id){
+      console.log('editing item?')
+      // item.edit = edit
+      item.task = edit
+      return item
+    } else {
+      console.log('huh?')
+      item.edit = edit
+      return item
+    }
+  })
+    setTodos(editTask)
+  // const editTask = {
+  //   task: edit.task,
+  //   id: edit.id,
+  //   completed: false
+  // }
+  // setTodos([...todos, editTask])
+}
 
-
-const clearCompleted = (e, index) => {
-  // e.preventDefault();
+const clearCompleted = () => {
  console.log('clear completed clicked!')
-//  let clearTask = [...todos]
-//  let completeit = clearTask.splice(index, 1)
-//   clearTask.filter(todo => !todo.completed)
-//  setTodos(clearTask)
-// clearTask.filter(todo => todo !== todo.completed)
 let clearTask = todos.filter(todo => !todo.completed)
  setTodos(clearTask)
  console.log('completeit...', clearTask)
@@ -64,16 +81,17 @@ const toggleTodo = id => {
 
 
 
+
   return (
     <div className="App">
       <TodoForm 
         addTodoProp={addToDo}
-        handleToggleComplete={clearCompleted}
       />
       <TodoList 
       handleToggleComplete={toggleTodo}
       todos={todos}
       handleClearCompleted={clearCompleted}
+      handleEdit={editTodo}
       />
     </div>
   );
